@@ -9,9 +9,10 @@ public class QuotaCalculator {
         int quota = 10;
         
         System.out.println("Enter the number of sales made");
-        Scanner scanner = new Scanner(System.in);
-        int sales = scanner.nextInt();
-        scanner.close();
+        int sales;
+        try (Scanner scanner = new Scanner(System.in)) {
+            sales = scanner.nextInt();
+        }
 
         if(sales >= quota){
             System.out.println("Congrats! You've met your quota.");
